@@ -1,0 +1,1 @@
+This project is for trying out new features of recent .NET releases.
