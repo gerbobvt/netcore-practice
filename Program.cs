@@ -34,21 +34,41 @@ var logger = host.Services.GetService<ILogger<Program>>();
 //     logger.LogError("lrn2hack n00b!");
 // }
 
-Console.Write("Pick a number: ");
-var requestedNumber = Console.ReadLine();
+// Console.Write("Pick a number: ");
+// var requestedNumber = Console.ReadLine();
 
-if (requestedNumber is not null && int.TryParse(requestedNumber, out var size))
+// if (requestedNumber is not null && int.TryParse(requestedNumber, out var size))
+// {
+//     logger.LogInformation($"Finding primes up to {size}");
+//     var primes = algos.GetPrimesLessThan(size);
+//     logger.LogInformation($"Found {primes.Count} primes");
+
+//     foreach (var prime in primes)
+//     {
+//         Console.WriteLine(prime);
+//     }
+// }
+// else
+// {
+//     logger.LogError("Learn to follow directions.");
+// }
+
+Console.Write("Enter a number: ");
+var a = NumberFromInput(Console.ReadLine());
+
+Console.Write("Enter another number: ");
+var b = NumberFromInput(Console.ReadLine());
+
+Console.WriteLine($"Add {a} + {b} = {BrainTeasers.Add(a, b)}");
+Console.WriteLine($"Fancy Add {a} + {b} = {BrainTeasers.FancyAdd(a, b)}");
+
+
+int NumberFromInput(string input)
 {
-    logger.LogInformation($"Finding primes up to {size}");
-    var primes = algos.GetPrimesLessThan(size);
-    logger.LogInformation($"Found {primes.Count} primes");
-
-    foreach (var prime in primes)
+    if (input is not null && int.TryParse(input, out var number))
     {
-        Console.WriteLine(prime);
+        return number;
     }
-}
-else
-{
-    logger.LogError("Learn to follow directions.");
+
+    throw new ArgumentException("Input is not a number.");
 }
