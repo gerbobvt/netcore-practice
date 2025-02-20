@@ -4,15 +4,21 @@ public static class BrainTeasers
 {
     public static int Add(int a, int b)
     {
-        ArgumentOutOfRangeException.ThrowIfLessThan(a, 0);
-        ArgumentOutOfRangeException.ThrowIfLessThan(b, 0);
-
-        while (b > 0)
+        var reverse = b < 0;
+        
+        while (b != 0)
         {
-            a++;
-            b--;
+            if (reverse) 
+            {
+                a--;
+                b++;
+            }
+            else 
+            {
+                a++;
+                b--;
+            }       
         }
-
         return a;
     }
 
