@@ -4,15 +4,8 @@ public static class BrainTeasers
 {
     public static int Add(int a, int b)
     {
-        // Neither input can be negative
-        if (a < 0)
-        {
-            throw new ArgumentException(nameof(a));
-        }
-        if (b < 0)
-        {
-            throw new ArgumentException(nameof(b));
-        }
+        ArgumentOutOfRangeException.ThrowIfLessThan(a, 0);
+        ArgumentOutOfRangeException.ThrowIfLessThan(b, 0);
 
         while (b > 0)
         {

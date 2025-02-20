@@ -54,10 +54,10 @@ var logger = host.Services.GetService<ILogger<Program>>();
 // }
 
 Console.Write("Enter a number: ");
-var a = NumberFromInput(Console.ReadLine());
+var a = NumberFromInput(Console.ReadLine() ?? "");
 
 Console.Write("Enter another number: ");
-var b = NumberFromInput(Console.ReadLine());
+var b = NumberFromInput(Console.ReadLine() ?? "");
 
 Console.WriteLine($"Add {a} + {b} = {BrainTeasers.Add(a, b)}");
 Console.WriteLine($"Fancy Add {a} + {b} = {BrainTeasers.FancyAdd(a, b)}");
